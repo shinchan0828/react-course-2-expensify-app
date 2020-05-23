@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "serve": "live-server public/",
-    "build": "webpack",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest"
+    "test": "jest",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "author": "Marcos",
   "license": "ISC",
@@ -19,11 +22,12 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "react-redux": "^7.2.0",
     "uuid": "^8.0.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -31,10 +35,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.5.3",
+    "express": "^4.17.1",
     "jest": "^26.0.1",
     "live-server": "^1.2.1",
     "moment": "^2.25.3",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-addons-shallow-compare": "^15.6.2",
